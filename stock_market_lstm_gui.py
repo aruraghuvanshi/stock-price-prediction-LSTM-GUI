@@ -35,6 +35,8 @@ def run_predictor():
     TRAINING_END = get_date()  # '2020-10-05'
     TRAINING_START = '2012-01-01'
 
+    # ---------------------------------------------- DATA PREPROCESSING ---------------------------------------------- ]
+    
     try:
 
         d = datetime.strptime(TRAINING_END, '%Y-%m-%d')  # string to dt
@@ -82,7 +84,7 @@ def run_predictor():
         # Reshape the data into the shape accepted by the LSTM
         x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
 
-        # ------------------------------------------ NEURAL NETWORK MODEL ----------------------------------- ]
+        # ======================================== NEURAL NETWORK MODEL ======================================== ]
 
         # #Build the LSTM network model
         # model = Sequential()
@@ -101,7 +103,7 @@ def run_predictor():
 
         model = load_model('stockprice_new.h5')
 
-        # ---------------------------------------------- PREDICTION SIDE --------------------------------- ]
+        # ---------------------------------------------- PREDICTION SIDE ---------------------------------------------- ]
 
         # converting string to datetime
         day = datetime.strptime(TRAINING_END, '%Y-%m-%d')
@@ -181,7 +183,7 @@ def run_predictor():
                  font=('arial', 10, ' bold ')).place(x=860, y=370)
 
 
-# ---------------------------------------------  G U I  -------------------------------------- ]
+# ===============================================  G U I  ============================================== ]
 
 window = tk.Tk()
 
@@ -200,7 +202,7 @@ lbl = tk.Label(window, text='STOCK MARKET PRICE PREDICTION USING AI',
                activebackground="Red",
                font=('arial', 25, ' bold ')).place(x=200, y=30)
 
-# ----------------------------- CHOOSE COMPANY -------------------------------------------- ]
+# -------------------------------------------- CHOOSE COMPANY -------------------------------------------- ]
 
 comp = tk.Label(window, text='CHOOSE COMPANY: ',
                 fg="white", bg="dodgerblue",
@@ -225,7 +227,7 @@ gcobtn = tk.Button(window, command=get_company, text='OK',
                    activebackground="firebrick",
                    font=('arial', 10, ' bold ')).place(x=560, y=275)
 
-# ----------------------------- CHOOSE DATE -------------------------------------------- ]
+# -------------------------------------------- CHOOSE DATE -------------------------------------------- ]
 
 ent1 = tk.Label(window, text='ENTER DATE IN YYYY-MM-DD: ',
                 fg="white", bg="orchid",
@@ -254,7 +256,7 @@ gdbtn = tk.Button(window, command=get_date, text='Submit',
                   activebackground="skyblue",
                   font=('arial', 10, ' bold ')).place(x=720, y=380)
 
-# ----------------------------- PREDICTOR -------------------------------------------  ]
+# -------------------------------------------- PREDICTOR --------------------------------------------  ]
 
 gcobtn = tk.Button(window, command=run_predictor, text='RUN PREDICTOR',
                    fg="white", bg="mediumslateblue",
@@ -262,7 +264,7 @@ gcobtn = tk.Button(window, command=run_predictor, text='RUN PREDICTOR',
                    activebackground="indianred",
                    font=('arial', 20, ' bold ')).place(x=600, y=550)
 
-# ----------------------------- PREDICTION -------------------------------------------  ]
+# -------------------------------------------- PREDICTION --------------------------------------------  ]
 
 ent1 = tk.Label(window, text='ENTER DATE IN YYYY-MM-DD: ',
                 fg="white", bg="orchid",
@@ -270,7 +272,7 @@ ent1 = tk.Label(window, text='ENTER DATE IN YYYY-MM-DD: ',
                 activebackground="skyblue",
                 font=('arial', 12, ' bold ')).place(x=200, y=370)
 
-# ------------------------------------------------------------------------------------  ]
+# ----------------------------------------------------------------------------------------------------  ]
 btn2 = tk.Button(window, text='QUIT', command=window.destroy,
                  fg="white", bg="purple",
                  width=20, height=3,
