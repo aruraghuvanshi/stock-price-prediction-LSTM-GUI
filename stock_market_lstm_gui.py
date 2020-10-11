@@ -1,7 +1,12 @@
 '''
-
 Aru Raghuvanshi
 12-10-2020
+
+[RNN] LSTM based stock price prediction model to predict prices from historical datasets 
+taken from Yahoo Finance. Companies names can be added to line 210 to fetch required 
+data and make predictions.
+
+Disclaimer: Not for commercial use.
 
 '''
 
