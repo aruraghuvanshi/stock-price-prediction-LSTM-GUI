@@ -9,8 +9,6 @@ data and make predictions.
 Disclaimer: Not for commercial use.
 
 '''
-
-
 import math
 import pandas_datareader as web
 import numpy as np
@@ -31,6 +29,7 @@ plt.style.use('fivethirtyeight')
 
 
 def run_predictor():
+    
     COMPANY = get_company()  # 'BHARTIARTL.NS'
     TRAINING_END = get_date()  # '2020-10-05'
     TRAINING_START = '2012-01-01'
@@ -171,7 +170,6 @@ def run_predictor():
                  activebackground="indianred",
                  font=('arial', 10, ' bold ')).place(x=970, y=480)
 
-
     else:
         print(f"{TRAINING_END} is a \033[1;31mWeekend\033[0m.")
         print(f"The Stock Exchange doesn't operate on Weekends.")
@@ -219,7 +217,7 @@ def get_company():
     co = variable.get()
     comp.append(co)
     return comp[0]
-
+                  
 
 gcobtn = tk.Button(window, command=get_company, text='OK',
                    fg="white", bg="yellowgreen",
